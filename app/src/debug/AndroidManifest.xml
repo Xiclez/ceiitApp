@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ceiitApp"> <!-- Cambia el paquete al de tu app principal -->
+
+    <!-- Aquí puedes agregar otras configuraciones específicas para el tipo de compilación debug si lo necesitas -->
+
+    <application>
+        <!-- Si no hay actividades o configuraciones específicas para debug, este bloque puede quedar vacío. -->
+    </application>
+
+</manifest>
