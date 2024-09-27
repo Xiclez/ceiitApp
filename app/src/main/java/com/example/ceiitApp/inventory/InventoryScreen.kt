@@ -1,6 +1,7 @@
 package com.example.ceiitApp.inventory
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -14,11 +15,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navOptions
 import coil.compose.rememberImagePainter
 import com.example.ceiitApp.models.Objeto
 
 @Composable
-fun InventoryScreen() {
+fun InventoryScreen(navController: NavController) {
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -31,29 +36,32 @@ fun InventoryScreen() {
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         Spacer(modifier = Modifier.height(16.dp))
-        InventoryList(objects = getDummyData())
+        InventoryList(objects = getDummyData(), navController = navController)
     }
 }
 
 @Composable
-fun InventoryList(objects: List<Objeto>) {
+fun InventoryList(objects: List<Objeto>, navController: NavController) {
     LazyColumn(
         contentPadding = PaddingValues(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(objects) { objeto ->
-            InventoryItem(objeto)
+            InventoryItem(objeto = objeto, navController = navController)
         }
     }
 }
 
 @Composable
-fun InventoryItem(objeto: Objeto) {
+fun InventoryItem(objeto: Objeto, navController: NavController) {
     Card(
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .height(150.dp),
+            .height(150.dp)
+            .clickable {
+                navController.navigate("details/${objeto.id}/objeto")
+            },
         elevation = 4.dp
     ) {
         Row(
@@ -101,7 +109,8 @@ fun getDummyData(): List<Objeto> {
             estado = "Disponible",
             categoria = "Herramientas",
             urlImagen = "https://cdn.homedepot.com.mx/productos/133485/133485-d.jpg",
-            ubicacion = "Taller de Madera y Metal"
+            ubicacion = "Taller de Madera y Metal",
+            qr = "testqr"
         ),
         Objeto(
             id = "2",
@@ -110,7 +119,8 @@ fun getDummyData(): List<Objeto> {
             estado = "Disponible",
             categoria = "Herramientas",
             urlImagen = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFd2PLKOm-wZl2e3xD57rL-_D8IENvasFQGQ&s",
-            ubicacion = "Taller de Madera y Metal"
+            ubicacion = "Taller de Madera y Metal",
+            qr = "testqr"
         ),
         Objeto(
             id = "3",
@@ -119,7 +129,8 @@ fun getDummyData(): List<Objeto> {
             estado = "En Uso",
             categoria = "Impresoras",
             urlImagen = "https://www.3dmarket.mx/wp-content/uploads/2022/07/Impresora-3D-Ender-3-S1-Creality.webp",
-            ubicacion = "FabLab"
+            ubicacion = "FabLab",
+            qr = "testqr"
         ),
         Objeto(
             id = "4",
@@ -128,7 +139,8 @@ fun getDummyData(): List<Objeto> {
             estado = "Disponible",
             categoria = "Sublimación",
             urlImagen = "https://resources.sears.com.mx/medios-plazavip/mkt/6109c9f131422_gorrajpg.jpg",
-            ubicacion = "FabLab"
+            ubicacion = "FabLab",
+            qr = "testqr"
         ),
         Objeto(
             id = "5",
@@ -137,7 +149,8 @@ fun getDummyData(): List<Objeto> {
             estado = "Disponible",
             categoria = "Herramientas",
             urlImagen = "https://static.grainger.com/rp/s/is/image/Grainger/22UT50_AS02?",
-            ubicacion = "Taller de Madera y Metal"
+            ubicacion = "Taller de Madera y Metal",
+            qr = "testqr"
         ),
         Objeto(
             id = "6",
@@ -146,7 +159,8 @@ fun getDummyData(): List<Objeto> {
             estado = "En Mantenimiento",
             categoria = "Máquinas",
             urlImagen = "https://m.media-amazon.com/images/I/71zrbVEpAaL.jpg",
-            ubicacion = "FabLab"
+            ubicacion = "FabLab",
+            qr = "testqr"
         ),
         Objeto(
             id = "7",
@@ -155,7 +169,8 @@ fun getDummyData(): List<Objeto> {
             estado = "Disponible",
             categoria = "Electrónica",
             urlImagen = "https://m.media-amazon.com/images/I/71nhCFbdy0L.jpg",
-            ubicacion = "Oficina"
+            ubicacion = "Oficina",
+            qr = "testqr"
         ),
         Objeto(
             id = "8",
@@ -164,7 +179,8 @@ fun getDummyData(): List<Objeto> {
             estado = "Disponible",
             categoria = "Electrónica",
             urlImagen = "https://aelectronics.com.mx/893/protoboard-blanca-de-830-puntos.jpg",
-            ubicacion = "Oficina"
+            ubicacion = "Oficina",
+            qr = "testqr"
         ),
         Objeto(
             id = "9",
@@ -173,7 +189,8 @@ fun getDummyData(): List<Objeto> {
             estado = "En Uso",
             categoria = "Audiovisuales",
             urlImagen = "https://mediaserver.goepson.com/ImConvServlet/imconv/93ca5c94893d43c0e0512ff54ce6f5b624db3707/1200Wx1200H?use=banner&hybrisId=B2C&assetDescr=V11H569020_Proyectores_Epson%20PowerLite%20X17_ES",
-            ubicacion = "Oficina"
+            ubicacion = "Oficina",
+            qr = "testqr"
         ),
         Objeto(
             id = "10",
@@ -182,7 +199,8 @@ fun getDummyData(): List<Objeto> {
             estado = "No Disponible",
             categoria = "Herramientas",
             urlImagen = "https://res.cloudinary.com/dn4m0kr7j/image/upload/v1719868792/logoInvMgr_ongzfh.png",
-            ubicacion = "Taller de Madera y Metal"
+            ubicacion = "Taller de Madera y Metal",
+            qr = "testqr"
         )
     )
 }
@@ -190,5 +208,5 @@ fun getDummyData(): List<Objeto> {
 @Composable
 @Preview
 fun PreviewInventoryScreen() {
-    InventoryScreen()
+    InventoryScreen(navController = rememberNavController())
 }

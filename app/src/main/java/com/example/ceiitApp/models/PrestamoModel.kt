@@ -5,7 +5,7 @@ data class Prestamo(
     val nombre: String,
     val categoria: String,
     val fechaPrestamo: String,
-    val fechaDevolucionEstimada: String,
+    val fechaDevolucion: String,
     val estado: String,
     val urlImagen: String
 )

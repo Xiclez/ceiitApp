@@ -32,9 +32,6 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     Scaffold(
-        topBar = {
-            TopAppBar(title = "My App") // Ajusta el título o deja dinámico
-        },
         bottomBar = {
             BottomNavigationBar(navController = navController)
         }

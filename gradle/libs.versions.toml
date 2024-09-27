@@ -1,4 +1,7 @@
 [versions]
+androidx-camera = "1.1.0"
+androidx-camera-view = "1.0.0-alpha29"
+androidx-camera-extensions = "1.0.0-alpha29"
 accompanist = "0.28.0"
 accompanistPermissions = "0.23.1"
 annotation = "1.5.0"
@@ -36,6 +39,7 @@ coil = "2.2.2"
 # @keep
 coilCompose = "2.0.0"
 compileSdk = "33"
+gson = "2.8.8"
 hamcrest = "1.3"
 hilt = "2.44.2"
 hiltExt = "1.0.0"
@@ -64,6 +68,8 @@ truth = "1.1.2"
 turbine = "0.12.1"
 accessibilityTestFramework = "3.1.2"
 core = "1.8.0"
+playServicesMlkitBarcodeScanning = "18.3.1"
+cameraCamera2 = "1.3.4"
 
 [libraries]
 accompanist-appcompat-theme = { group = "com.google.accompanist", name = "accompanist-appcompat-theme", version.ref = "accompanist" }
@@ -131,6 +137,7 @@ coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 google-truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 hamcrest = { group = "org.hamcrest", name = "hamcrest-all", version.ref = "hamcrest" }
 hilt-android-core = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
@@ -155,6 +162,11 @@ android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", ver
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 accessibility-test-framework = { group = "com.google.android.apps.common.testing.accessibility.framework", name = "accessibility-test-framework", version.ref = "accessibilityTestFramework" }
 androidx-core = { group = "androidx.core", name = "core", version.ref = "core" }
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version = "1.0.0" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.3.1" }
+google-mlkit-barcode-scanning = { module = "com.google.mlkit:barcode-scanning", version = "17.0.2" }
+play-services-mlkit-barcode-scanning = { group = "com.google.android.gms", name = "play-services-mlkit-barcode-scanning", version.ref = "playServicesMlkitBarcodeScanning" }
+camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "cameraCamera2" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

@@ -7,6 +7,7 @@ data class Objeto(
     val estado: String,
     val categoria: String,
     val urlImagen: String,
-    val ubicacion: String
+    val ubicacion: String,
+    val qr: String
 
 )
